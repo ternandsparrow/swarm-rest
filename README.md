@@ -177,7 +177,7 @@ version of the code).
 
 ## Generating a JWT
 If you need to generate a JWT, you can run the
-[./helper-scripts/generate-jwt.sh]() script. It will read the values from the
+`./helper-scripts/generate-jwt.sh` script. It will read the values from the
 code in the repo so you need to **run it on the swarm-rest server** so it uses
 the real values.
 
