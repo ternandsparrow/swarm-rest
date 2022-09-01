@@ -1,3 +1,4 @@
 start-or-restart.sh
 userpolicy.json
 
+helper-scripts/tmp-jwt-gen.py

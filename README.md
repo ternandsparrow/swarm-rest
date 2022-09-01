@@ -175,6 +175,15 @@ client to this service. At the time of writing, the ausplotsR client does it
 (note: this link is pinned to a specific commit. Be sure to look at the latest
 version of the code).
 
+## Generating a JWT
+If you need to generate a JWT, you can run the
+[./helper-scripts/generate-jwt.sh]() script. It will read the values from the
+code in the repo so you need to **run it on the swarm-rest server** so it uses
+the real values.
+
+The output of the script will give you the JWT and an example curl to test it
+out.
+
 ## Modifying our copy of the schema
 In the set up steps, we first sync the schema, then sync the data then run our
 script to create the bits we need. Future data syncs won't touch the schema,
