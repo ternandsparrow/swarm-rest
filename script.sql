@@ -320,7 +320,7 @@ SELECT
   sl.site_location_name,
   hd.herbarium_determination,
   hd.is_uncertain_determination,
-  hd.veg_barcode,
+  vv.veg_barcode,
   wfod_pretty.standardised_name,
   wfod_pretty.family,
   wfod_pretty.genus,
