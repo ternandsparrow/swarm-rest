@@ -10,7 +10,7 @@
   "dependencies": {
     "@sentry/node": "^5.22.3",
     "axios": "^0.21.2",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-pino-logger": "^5.0.0",
     "jsonld": "^3.1.1",
     "pino": "^6.5.1"
