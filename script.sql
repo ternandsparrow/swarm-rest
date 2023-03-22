@@ -327,7 +327,7 @@ SELECT
   wfod_pretty.standardised_name,
   wfod_pretty.standardised_scientific_name,
   wfod_pretty.kingdom,
-  wfod_pretty.taxaID,
+  wfod_pretty.taxa_id,
   wfod_pretty.family,
   wfod_pretty.genus,
   wfod_pretty.specific_epithet,
