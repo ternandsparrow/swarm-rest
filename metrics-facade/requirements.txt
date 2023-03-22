@@ -1,3 +1,3 @@
 elasticsearch
-mitmproxy==8.0.0
+mitmproxy==4.0.4
 
