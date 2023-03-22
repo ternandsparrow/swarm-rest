@@ -99,7 +99,9 @@ DROP VIEW IF EXISTS api.wfo_determination_pretty;
 CREATE VIEW api.wfo_determination_pretty AS
 SELECT
   wfod.veg_barcode,
+  NULLIF(wfod.taxaID, '') AS "taxaID",
   NULLIF(wfod.scientific_name, '') AS standardised_name,
+  NULLIF(wfod.standardised_scientific_name, '') AS standardised_scientific_name,
   NULLIF(wfod.tax_family, '') AS family,
   NULLIF(wfod.tax_genus, '') AS genus,
   NULLIF(wfod.tax_specific_epithet, '') AS specific_epithet,
@@ -111,7 +113,8 @@ SELECT
       || wfod.tax_specific_epithet), '') AS genus_species,
   NULLIF(wfod.scientific_name_authorship, '') AS authorship,
   NULLIF(wfod.scientific_name_published_in, '') AS published_in,
-  NULLIF(wfod.taxon_rank, '') AS "rank"
+  NULLIF(wfod.taxon_rank, '') AS "rank",
+  NULLIF(wfod.kingdom, '') AS "kingdom"
 FROM public.wfo_determination AS wfod;
 
 
