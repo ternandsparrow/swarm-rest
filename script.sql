@@ -99,7 +99,7 @@ DROP VIEW IF EXISTS api.wfo_determination_pretty;
 CREATE VIEW api.wfo_determination_pretty AS
 SELECT
   wfod.veg_barcode,
-  NULLIF(wfod.taxaID, '') AS "taxaID",
+  NULLIF(wfod.taxaID, '') AS taxaID,
   NULLIF(wfod.scientific_name, '') AS standardised_name,
   NULLIF(wfod.standardised_scientific_name, '') AS standardised_scientific_name,
   NULLIF(wfod.tax_family, '') AS family,
@@ -113,8 +113,8 @@ SELECT
       || wfod.tax_specific_epithet), '') AS genus_species,
   NULLIF(wfod.scientific_name_authorship, '') AS authorship,
   NULLIF(wfod.scientific_name_published_in, '') AS published_in,
-  NULLIF(wfod.taxon_rank, '') AS "rank",
-  NULLIF(wfod.kingdom, '') AS "kingdom"
+  NULLIF(wfod.taxon_rank, '') AS rank,
+  NULLIF(wfod.kingdom, '') AS kingdom
 FROM public.wfo_determination AS wfod;
 
 
@@ -325,6 +325,9 @@ SELECT
   hd.is_uncertain_determination,
   vv.veg_barcode,
   wfod_pretty.standardised_name,
+  wfod_pretty.standardised_scientific_name,
+  wfod_pretty.kingdom,
+  wfod_pretty.taxaID,
   wfod_pretty.family,
   wfod_pretty.genus,
   wfod_pretty.specific_epithet,
@@ -378,6 +381,9 @@ SELECT
   pi.height,
   hd.veg_barcode,
   wfod_pretty.standardised_name,
+  wfod_pretty.standardised_scientific_name,
+  wfod_pretty.kingdom,
+  wfod_pretty.taxaID,  
   wfod_pretty.family,
   wfod_pretty.genus,
   wfod_pretty.specific_epithet,
@@ -417,6 +423,9 @@ SELECT
   hd.herbarium_determination,
   hd.veg_barcode,
   wfod_pretty.standardised_name,
+  wfod_pretty.standardised_scientific_name,
+  wfod_pretty.kingdom,
+  wfod_pretty.taxaID,
   wfod_pretty.family,
   wfod_pretty.genus,
   wfod_pretty.specific_epithet,
@@ -459,6 +468,9 @@ SELECT
   hd.herbarium_determination,
   hd.veg_barcode,
   wfod_pretty.standardised_name,
+  wfod_pretty.standardised_scientific_name,
+  wfod_pretty.kingdom,
+  wfod_pretty.taxaID,
   wfod_pretty.family,
   wfod_pretty.genus,
   wfod_pretty.specific_epithet,

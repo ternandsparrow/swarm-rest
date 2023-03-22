@@ -51,7 +51,7 @@ services:
         max-size: 100m
 
   db:
-    image: postgres:13
+    image: postgres:10
     container_name: swarmrest_db
     init: true
     ports:
