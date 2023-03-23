@@ -177,13 +177,19 @@ async function parseData(data) {
   const ausplotsRSpecificVars = [
     [
       'authorship',
-      'standardised author of taxonomic name from World Flora Online',
+      'standardised author of taxonomic name from the Australian Plant Census (APC) and Australian Plant Names Index (APNI)',
     ],
-    ['family', 'plant family from World Flora Online'],
-    ['genus', 'plant genus from World Flora Online'],
+    [
+      'family',
+      'plant family from the Australian Plant Census (APC) and Australian Plant Names Index (APNI)',
+    ],
+    [
+      'genus',
+      'plant genus from the Australian Plant Census (APC) and Australian Plant Names Index (APNI)',
+    ],
     [
       'genus_species',
-      'species level scientific name matched to World Flora Online',
+      'species level scientific name matched to the Australian Plant Census (APC) and Australian Plant Names Index (APNI)',
     ],
     [
       'hits_unique',
@@ -191,28 +197,40 @@ async function parseData(data) {
     ],
     [
       'infraspecific_epithet',
-      'epithet or name identifying infraspecific taxon matched to World Flora Online',
+      'epithet or name identifying infraspecific taxon matched to the Australian Plant Census (APC) and Australian Plant Names Index (APNI)',
     ],
     [
       'infraspecific_rank',
-      'rank of infraspecific taxon matched to World Flora Online',
+      'rank of infraspecific taxon matched to the Australian Plant Census (APC) and Australian Plant Names Index (APNI)',
     ],
-    ['published_in', 'taxonomic publication details from World Flora Online'],
-    ['rank', 'lowest applicable taxonomic rank from World Flora Online'],
+    [
+      'published_in',
+      'taxonomic publication details from the Australian Plant Census (APC) and Australian Plant Names Index (APNI)',
+    ],
+    [
+      'rank',
+      'lowest applicable taxonomic rank from the Australian Plant Census (APC) and Australian Plant Names Index (APNI)',
+    ],
     [
       'site_unique',
       'unique site survey identifier concatenation of site_location_name and site_location_visit_ID',
     ],
     [
       'specific_epithet',
-      'epithet or name identifying species matched to World Flora Online',
+      'epithet or name identifying species matched to the Australian Plant Census (APC) and Australian Plant Names Index (APNI)',
     ],
     [
       'standardised_name',
-      'scientific name at lowest available taxonomic level matched to World Flora Online',
+      'scientific name at lowest available taxonomic level matched to the Australian Plant Census (APC) and Australian Plant Names Index (APNI)',
     ],
-    ['taxa_group', 'major plant taxonomic group from World Flora Online'],
-    ['taxa_status', 'flag for accepted plant name from World Flora Online'],
+    [
+      'taxa_group',
+      'major plant taxonomic group from the Australian Plant Census (APC) and Australian Plant Names Index (APNI)',
+    ],
+    [
+      'taxa_status',
+      'flag for accepted plant name from the Australian Plant Census (APC) and Australian Plant Names Index (APNI)',
+    ],
   ]
   ausplotsRSpecificVars.forEach(([currVarId, currVarDef]) => {
     variables.push({
