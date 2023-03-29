@@ -30,8 +30,12 @@ http {
 
     proxy_cache_path $cachedir levels=1:2 keys_zone=$cacheZoneName:10m inactive=10m max_size=1g;
 
+    # Looking to fix overloading the DB with 503's being thrown
+    # thanks github https://github.com/PostgREST/postgrest/issues/1399#issuecomment-843174952
     upstream target-server {
         server $TARGET_SERVER;
+        keepalive 64;
+        keepalive_timeout 120s;
     }
 
     upstream metadata-server {
