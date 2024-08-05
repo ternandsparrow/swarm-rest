@@ -973,6 +973,30 @@ INNER JOIN (
   ON last_visits.site_location_id = sl.site_location_id;
 
 
+DROP VIEW IF EXISTS api.plot_level_derived_indices;
+CREATE VIEW api.plot_level_derived_indices AS
+SELECT
+  *
+FROM
+  public.plot_level_derived_indices;
+
+
+DROP VIEW IF EXISTS api.species_level_functional_traits;
+CREATE VIEW api.species_level_functional_traits AS
+SELECT
+  *
+FROM
+  public.species_level_functional_traits;
+
+
+DROP VIEW IF EXISTS api.species_level_invasion_status;
+CREATE VIEW api.species_level_invasion_status AS
+SELECT
+  *
+FROM
+  public.species_level_invasion_status;
+
+
 GRANT SELECT ON api.site_inc_unpub TO staff;
 GRANT SELECT ON api.structural_summary_inc_unpub TO staff;
 GRANT SELECT ON api.soil_bulk_density_inc_unpub TO staff;
@@ -1006,5 +1030,9 @@ GRANT SELECT ON api.ausplots_stats TO web_anon;
 GRANT SELECT ON api.visit_summary TO web_anon;
 
 GRANT SELECT ON api.s2s_study_location TO web_anon;
+
+GRANT SELECT ON api.plot_level_derived_indices TO web_anon;
+GRANT SELECT ON api.species_level_functional_traits TO web_anon;
+GRANT SELECT ON api.species_level_invasion_status TO web_anon;
 
 SELECT 'success' AS outcome;
