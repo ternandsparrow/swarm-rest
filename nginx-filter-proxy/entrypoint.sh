@@ -28,7 +28,8 @@ http {
     # thanks https://stackoverflow.com/a/1067462/1410035
     large_client_header_buffers 4 256k;
 
-    proxy_cache_path $cachedir levels=1:2 keys_zone=$cacheZoneName:10m inactive=10m max_size=1g;
+    proxy_cache_path $cachedir levels=1:2 keys_zone=$cacheZoneName:10m inactive=10m max_size=10g;
+    proxy_cache_min_uses 1;
 
     # Looking to fix overloading the DB with 503's being thrown
     # thanks github https://github.com/PostgREST/postgrest/issues/1399#issuecomment-843174952
@@ -79,7 +80,7 @@ http {
             proxy_pass              http://target-server;
             proxy_redirect          off;
             proxy_cache             $cacheSwitchFragment;
-            proxy_cache_valid       any 120m;
+            proxy_cache_valid       120m;
             proxy_cache_use_stale   error timeout http_500 http_502 http_503 http_504;
             proxy_cache_background_update on;
             proxy_cache_key         \$scheme\$proxy_host\$request_uri\$is_args\$args\$http_accept\$http_authorization; # add Accept and Auth header to key

@@ -1,4 +1,4 @@
-FROM node:14-alpine3.12 as withDeps
+FROM node:18.18.2-alpine3.18 AS withdeps
 
 ARG NODE_ENV
 
@@ -8,10 +8,10 @@ ENV NODE_ENV=${NODE_ENV:-production} \
     HOME=/tmp
 WORKDIR /app
 ADD package.json yarn.lock ./
-RUN yarn install --prod --frozen-lockfile \
+RUN yarn install \
       && yarn cache clean
 
-FROM withDeps
+FROM withdeps
 EXPOSE 3000
 # the 'guest' user is built in to Alpine
 USER guest
