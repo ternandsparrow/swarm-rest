@@ -997,6 +997,39 @@ FROM
   public.species_level_invasion_status;
 
 
+DROP VIEW IF EXISTS api.nvis_ausplot_r;
+CREATE VIEW api.nvis_ausplot_r AS
+SELECT
+  slv.site_location_visit_id,
+  sl.site_location_name,
+  sl.site_location_name || '-' || slv.site_location_visit_id AS site_unique,
+  nh.class,
+  nh.structural_formation,
+  nh.nvis_code,
+  nh.broad_floristic_formation,
+  nh.sub_formation,
+  nh.association,
+  nh.vegetation_community_l5,
+  nh.vegetation_community_l6,
+  nh.sub_association,
+  nh.upper_average_height_metre,
+  nh.upper_cover_percentage,
+  nh.mid_average_height_metre,
+  nh.mid_cover_percentage,
+  nh.ground_average_height_metre,
+  nh.ground_cover_percentage,
+  mv.mvg_number AS "MVG_VICTA",
+  mv.mvg_name AS "MVG_NAME",
+  mv.mvs_number AS "MVS_VICTA",
+  mv.mvs_name AS "MVS_NAME"
+FROM public.site_location_visit AS slv
+INNER JOIN public.site_location AS sl
+  ON sl.site_location_id = slv.site_location_id
+LEFT OUTER JOIN public.derived_nvis_hierarchy AS nh
+  ON nh.site_location_visit_id = slv.site_location_visit_id
+LEFT OUTER JOIN public.derived_nvis_mvg AS mv
+  ON mv.site_location_visit_id = slv.site_location_visit_id;
+
 GRANT SELECT ON api.site_inc_unpub TO staff;
 GRANT SELECT ON api.structural_summary_inc_unpub TO staff;
 GRANT SELECT ON api.soil_bulk_density_inc_unpub TO staff;
@@ -1034,5 +1067,7 @@ GRANT SELECT ON api.s2s_study_location TO web_anon;
 GRANT SELECT ON api.plot_level_derived_indices TO web_anon;
 GRANT SELECT ON api.species_level_functional_traits TO web_anon;
 GRANT SELECT ON api.species_level_invasion_status TO web_anon;
+
+GRANT SELECT ON api.nvis_ausplot_r TO web_anon;
 
 SELECT 'success' AS outcome;

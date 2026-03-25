@@ -15,6 +15,7 @@ RUN \
     libstdc++ \
     g++ \
     libffi-dev && \
+  pip install cffi && \
   pip install -r requirements.txt && \
   apk del .build-deps
 ENTRYPOINT ["/bin/sh", "entrypoint.sh"]
