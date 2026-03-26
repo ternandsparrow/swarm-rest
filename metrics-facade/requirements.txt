@@ -1,3 +1,4 @@
 elasticsearch==7.17.12
 mitmproxy==4.0.4
+cffi>=1.0.0
 

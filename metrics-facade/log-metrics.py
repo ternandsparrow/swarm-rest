@@ -27,7 +27,8 @@ def log_to_elasticsearch(msg):
     msg['eventDate'] = datetime.now()
     try:
         # print('Logging message: %s' % str(msg)) # FIXME add configurable python logging
-        resp = es.index(index=es_index, doc_type='apicall', body=msg)
+        # remove deprecated args
+        resp = es.index(index=es_index, body=msg)
     except Exception as e:
         print('[ERROR] Failed to store metric in ES: ', e)
 
