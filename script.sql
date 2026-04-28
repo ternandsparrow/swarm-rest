@@ -997,6 +997,14 @@ FROM
   public.species_level_invasion_status;
 
 
+DROP VIEW IF EXISTS api.afa_static;
+CREATE VIEW api.afa_static AS
+SELECT
+  *
+FROM
+  public.afa_static;
+
+
 GRANT SELECT ON api.site_inc_unpub TO staff;
 GRANT SELECT ON api.structural_summary_inc_unpub TO staff;
 GRANT SELECT ON api.soil_bulk_density_inc_unpub TO staff;
@@ -1034,5 +1042,6 @@ GRANT SELECT ON api.s2s_study_location TO web_anon;
 GRANT SELECT ON api.plot_level_derived_indices TO web_anon;
 GRANT SELECT ON api.species_level_functional_traits TO web_anon;
 GRANT SELECT ON api.species_level_invasion_status TO web_anon;
+GRANT SELECT ON api.afa_static TO web_anon;
 
 SELECT 'success' AS outcome;
