@@ -1030,6 +1030,15 @@ LEFT OUTER JOIN public.derived_nvis_hierarchy AS nh
 LEFT OUTER JOIN public.derived_nvis_mvg AS mv
   ON mv.site_location_visit_id = slv.site_location_visit_id;
 
+
+DROP VIEW IF EXISTS api.afa_static;
+CREATE VIEW api.afa_static AS
+SELECT
+  *
+FROM
+  public.afa_static;
+
+
 GRANT SELECT ON api.site_inc_unpub TO staff;
 GRANT SELECT ON api.structural_summary_inc_unpub TO staff;
 GRANT SELECT ON api.soil_bulk_density_inc_unpub TO staff;
@@ -1067,6 +1076,7 @@ GRANT SELECT ON api.s2s_study_location TO web_anon;
 GRANT SELECT ON api.plot_level_derived_indices TO web_anon;
 GRANT SELECT ON api.species_level_functional_traits TO web_anon;
 GRANT SELECT ON api.species_level_invasion_status TO web_anon;
+GRANT SELECT ON api.afa_static TO web_anon;
 
 GRANT SELECT ON api.nvis_ausplot_r TO web_anon;
 
